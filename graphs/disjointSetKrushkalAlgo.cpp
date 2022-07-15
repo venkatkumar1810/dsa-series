@@ -14,6 +14,9 @@ int findPar(int node){
 void unionByRank(int u, int v){
     u = findPar(u);
     v = findPar(v);
+    
+    if( u == v) return;
+
     if( rankk[u] < rankk[v]){
         parent[u] = v;
     }else if( rankk[v] < rankk[u]){
@@ -27,7 +30,9 @@ void unionByRank(int u, int v){
 void unionBySize(int u, int v){
     u = findPar(u);
     v = findPar(v);
-    
+
+    if( u == v ) return;
+
     if(size[u] < size[v]){
         parent[u] = v;
         size[v] += size[u];
